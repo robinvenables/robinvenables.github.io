@@ -32,18 +32,3 @@ body
 {
     font-family: 'Roboto', san-serif;
 }
-.prev-post {
-    float: left;
-    text-align: left;
-}
-.center-post {
-    text-align: center;
-}
-.next-post {
-float: right;
-text-align: right;
-}
-
-.prev-post, .next-post {
-max-width: 40%;
-}
