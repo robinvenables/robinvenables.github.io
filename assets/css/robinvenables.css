@@ -1,0 +1,49 @@
+body
+{
+    font-family: 'Roboto', 'Lato', sans-serif;
+}
+.container
+{
+    max-width: 900px;
+}
+.author h1,
+.author h2,
+.author h3,
+.author h4,
+.author h5,
+.author h6,
+.author p
+{
+    font-family: 'Roboto', san-serif;
+}
+.intro
+{
+    font-family: 'Roboto', san-serif;
+}
+.list-entry
+{
+    font-family: 'Roboto', san-serif;
+}
+.tag
+{
+    color: #966 !important;
+}
+.title
+{
+    font-family: 'Roboto', san-serif;
+}
+.prev-post {
+    float: left;
+    text-align: left;
+}
+.center-post {
+    text-align: center;
+}
+.next-post {
+float: right;
+text-align: right;
+}
+
+.prev-post, .next-post {
+max-width: 40%;
+}
