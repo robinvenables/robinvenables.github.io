@@ -1,0 +1,30 @@
+<header class="text-left title">
+  <h1 class="title">{{ .Title }}</h1>
+</header>
+{{ if eq .Type "blog" }}
+<section id="tag-pane" class="meta">
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      {{ if not .Date.IsZero }}FIRST PUBLISHED ON {{ .Date.Format .Site.Params.dateformat | upper }}{{end}}
+      {{ if isset .Params "tags" }}
+      {{ $total := len .Params.tags }}
+      {{ if gt $total 0 }}
+      —
+      {{ $total := sub $total 1 }}
+      {{ range $i, $tag := sort .Params.tags }}
+      <a class="tag" href="{{ "/tags/" | relURL }}{{ $tag | humanize | urlize }}">{{ $tag | upper }}</a>{{ if lt $i $total }}, {{ end }}
+      {{ end }}
+      {{ end }}
+      {{ end }}
+      {{ if ne (.Date.Format .Site.Params.dateformat) (.GitInfo.AuthorDate.Format .Site.Params.dateformat) }}
+      <br>LAST UPDATED ON {{ .GitInfo.AuthorDate.Format .Site.Params.dateformat | upper }} - GIT COMMIT <a href="https://github.com/robinvenables/robinvenables.github.io/commit/{{ .GitInfo.Hash}}">{{ .GitInfo.AbbreviatedHash }}</a>
+      {{ end }}
+    </h6>
+  </div>
+</section>
+{{ end }}
+<section id="content-pane" class="">
+  <div class="col-md-12 text-justify content">
+    {{ .Content }}
+  </div>
+</section>

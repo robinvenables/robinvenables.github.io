@@ -1,0 +1,16 @@
+<section id="menu-pane" class="menu text-center">
+  {{ if eq .Type "blog"}}
+  {{ if not .IsNode }}
+  {{ with .PrevInSection }}
+  <span><a class="menu-item" href="{{ .Permalink }}">&lt;&lt; Prev | </a></span>
+  {{ end }}
+  {{ if (or (.PrevInSection) (.NextInSection)) }}
+  <span><a class="menu-item" href="{{ .Section | relURL }}">{{ .Section | title }}</a></span>
+  {{ end }}
+  {{ with .NextInSection }}
+  <span><a class="menu-item" href="{{ .Permalink }}"> | Next &gt;&gt;</a></span>
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  <h4 class="text-center"><a class="menu-item" href="{{ .Site.BaseURL }}">Home</a></h4>
+</section>

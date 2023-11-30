@@ -1,0 +1,58 @@
+## Basic Configuration
+
+baseurl = "https://robinvenables.com"
+languageCode = "en-GB"
+author = "Robin Venables"
+title = "Robin Venables"
+enableRobotsTXT = true
+enableGitInfo = true
+newContentEditor = "code"
+
+[module]
+[[module.imports]]
+    path = 'github.com/kaapiandcode/hugo-goa'
+
+## Site Settings
+[params]
+author = "Robin Venables"
+intro = "Husband • Father • Scuba Diver • IT Consultant"
+description = "I am an IT professional with over 30 years experience in architecting, building and administering physical, virtual and cloud-based environments."
+authorimage = "robinvenables.jpeg"
+dateformat = "2 January 2006"
+
+## Site Meta Settings
+[params.meta]
+description = "Simple minimalist theme"
+keywords = "blog,goa,hugo"
+
+## Social Accounts
+[params.social]
+github = "robinvenables"
+linkedin = "robin-venables"
+facebook = "robin.venables"
+
+## Extras
+[params.extra]
+copyright = "Copyright © 2020-{{ .Date.Now.Format \"2006\" }}. Robin Venables. All rights reserved"
+toc = false
+displayrssicon = false
+
+## Main Menu
+[[menu.main]]
+    name = "Blog"
+    weight = 100
+    identifier = "blog"
+    url = "/blog/"
+[[menu.main]]
+    name = "Acknowledgements"
+    identifier = "acknowledgements"
+    weight = 200
+    url = "/acknowledgements/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 300
+    url = "/about/"
+
+[markup.goldmark.renderer]
+    unsafe = true 
