@@ -16,8 +16,8 @@
       {{ end }}
       {{ end }}
       {{ end }}
-      {{ if ne (.Date.Format .Site.Params.dateformat) (.GitInfo.AuthorDate.Format .Site.Params.dateformat) }}
-      <br>LAST UPDATED ON {{ .GitInfo.AuthorDate.Format .Site.Params.dateformat | upper }} - GIT COMMIT <a href="https://github.com/robinvenables/robinvenables.github.io/commit/{{ .GitInfo.Hash}}">{{ .GitInfo.AbbreviatedHash }}</a>
+      {{ if gt (time .Lastmod) (time .Date) }}
+      <br>LAST UPDATED ON <a href="https://github.com/robinvenables/robinvenables.github.io/commit/{{ .GitInfo.Hash}}">{{ .Lastmod.Format .Site.Params.dateformat | upper }}</a>
       {{ end }}
     </h6>
   </div>
