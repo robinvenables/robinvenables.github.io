@@ -5,19 +5,28 @@
 <section id="tag-pane" class="meta">
   <div class="col-md-12">
     <h6 class="text-left meta">
-      {{ if not .Date.IsZero }}PUBLISHED ON {{ .Date.Format .Site.Params.dateformat | upper }}{{end}}
+      {{ $publishDate := "unset" }}
+      {{ if or (not .Date.IsZero) (not .PublishDate.IsZero) }}
+        {{ if .Date.IsZero }}
+          {{ $publishDate = .PublishDate }}
+        {{ else }}
+          {{ $publishDate = .Date }}
+        {{ end }}
+        PUBLISHED ON {{ $publishDate.Format .Site.Params.dateformat | upper }}
+      {{end}}
       {{ if isset .Params "tags" }}
-      {{ $total := len .Params.tags }}
-      {{ if gt $total 0 }}
-      —
-      {{ $total := sub $total 1 }}
-      {{ range $i, $tag := sort .Params.tags }}
-      <a class="tag" href="{{ "/tags/" | relURL }}{{ $tag | humanize | urlize }}">{{ $tag | upper }}</a>{{ if lt $i $total }}, {{ end }}
+        {{ $total := len .Params.tags }}
+        {{ if gt $total 0 }}
+          {{ if ne $publishDate "unset" }} — {{ end }}
+          TAGS:&nbsp;
+          {{ $total := sub $total 1 }}
+          {{ range $i, $tag := sort .Params.tags }}
+            <a class="tag" href="{{ "/tags/" | relURL }}{{ $tag | humanize | urlize }}">{{ $tag | upper }}</a>{{ if lt $i $total }}, {{ end }}
+          {{ end }}
+        {{ end }}
       {{ end }}
-      {{ end }}
-      {{ end }}
-      {{ if gt (time .Lastmod) (time .Date) }}
-      <br>LAST UPDATED ON <a href="https://github.com/robinvenables/robinvenables.github.io/commit/{{ .GitInfo.Hash}}">{{ .Lastmod.Format .Site.Params.dateformat | upper }}</a>
+      {{ if and (ne $publishDate "unset") (gt (time .Lastmod) (time $publishDate)) }}
+        <br>LAST UPDATED ON <a href="https://github.com/robinvenables/robinvenables.github.io/commit/{{ .GitInfo.Hash}}">{{ .Lastmod.Format .Site.Params.dateformat | upper }}</a>
       {{ end }}
     </h6>
   </div>

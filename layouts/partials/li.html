@@ -4,17 +4,25 @@
     <li class="list-entry">
       <a class="list-entry-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
       <p class="meta">
-        {{ if not .Date.IsZero }}PUBLISHED ON {{ .Date.Format .Site.Params.dateformat | upper }} {{end}}
-        <span class="tag">
+        {{ $publishDate := "unset" }}
+        {{ if or (not .Date.IsZero) (not .PublishDate.IsZero) }}
+          {{ if .Date.IsZero }}
+            {{ $publishDate = .PublishDate }}
+          {{ else }}
+            {{ $publishDate = .Date }}
+          {{ end }}
+          PUBLISHED ON {{ $publishDate.Format .Site.Params.dateformat | upper }}
+        {{end}}
         {{ if isset .Params "tags" }}
-        {{ $total := len .Params.tags }}
-        {{ if gt $total 0 }}
-        —
-        {{ $total := sub $total 1 }}
-        {{ range $i, $tag := sort .Params.tags }}
-        <a class="tag" href="{{ "/tags/" | relURL }}{{ $tag | humanize | urlize }}">{{ $tag | upper }}</a>{{ if lt $i $total }}, {{ end }}
-        {{ end }}
-        {{ end }}
+          {{ $total := len .Params.tags }}
+          {{ if gt $total 0 }}
+            {{ if ne $publishDate "unset" }} — {{ end }}
+            TAGS:&nbsp;
+            {{ $total := sub $total 1 }}
+            {{ range $i, $tag := sort .Params.tags }}
+              <a class="tag" href="{{ "/tags/" | relURL }}{{ $tag | humanize | urlize }}">{{ $tag | upper }}</a>{{ if lt $i $total }}, {{ end }}
+            {{ end }}
+          {{ end }}
         {{ end }}
         </span>
       </p>
