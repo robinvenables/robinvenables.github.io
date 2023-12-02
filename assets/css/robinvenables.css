@@ -16,6 +16,12 @@ body
 {
     font-family: 'Roboto', san-serif;
 }
+.acknowledgements
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+}
 .intro
 {
     font-family: 'Roboto', san-serif;
