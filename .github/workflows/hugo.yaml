@@ -76,15 +76,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-      - name: Redeploy Calendars
-        uses: convictional/trigger-workflow-and-wait@v1.6.5
-        with:
-          owner: robinvenables
-          repo: calendars
-          github_token: ${{ secrets.REPOSITORY_ACCESS_TOKEN }}
-          workflow_file_name: deploy.yaml
-          ref: main
-          wait_interval: 10
-          propagate_failure: true
-          trigger_workflow: true
-          wait_workflow: true
+      #- name: Redeploy Calendars
+      #  uses: convictional/trigger-workflow-and-wait@v1.6.5
+      #  with:
+      #    owner: robinvenables
+      #    repo: calendars
+      #    github_token: ${{ secrets.REPOSITORY_ACCESS_TOKEN }}
+      #    workflow_file_name: deploy.yaml
+      #    ref: main
+      #    wait_interval: 10
+      #    propagate_failure: true
+      #    trigger_workflow: true
+      #    wait_workflow: true
