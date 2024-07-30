@@ -23,13 +23,13 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.7
         with:
           submodules: true
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3.0.0
         with:
           hugo-version: '0.130.0'
 
@@ -43,7 +43,7 @@ jobs:
             --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4.0.0
         if: github.ref == 'refs/heads/main'
         with:
           cname: robinvenables.com
