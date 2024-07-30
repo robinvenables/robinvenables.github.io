@@ -4,7 +4,7 @@ date: 2020-05-22T06:00:00+01:00
 post_meta: []
 ---
 
-I am an IT professional with over 30 years experience in architecting, building and administering physical, virtual and cloud-based environments. My focus is with [IBM AIX][1] on [POWER hardware][2] and [PowerVS][3] in [IBM Cloud][4], [Red Hat Enterprise Linux][5] and [Amazon Web Services Linux][6]. I also have extensive experience in the design, configuration and support of storage management, backup, and clustering solutions. 
+I am an IT Consultant with over 30 years experience in architecting, building and administering physical, virtual and cloud-based environments. My focus is with [IBM AIX][1] on [POWER hardware][2] and [PowerVS][3] in [IBM Cloud][4], [Red Hat Enterprise Linux][5] and [Amazon Web Services Linux][6]. I also have extensive experience in the design, configuration and support of storage management, backup, and clustering solutions. 
 
 >"Being defeated is often a temporary condition. Giving up is what makes it permanent."
 >
