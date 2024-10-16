@@ -1,0 +1,12 @@
+.authorbox__description {
+    font-size: 9pt
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: none;
+    color: {{ .Site.Params.style.vars.highlightColor }}
+}
