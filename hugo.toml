@@ -3,6 +3,11 @@ languageCode = 'en-gb'
 title = 'Robin Venables'
 theme = "mainroad"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      
 [Params]
   description = "An IT consultant at work and play"
   opengraph = true # Enable OpenGraph if true
