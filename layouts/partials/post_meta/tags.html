@@ -10,25 +10,25 @@
 				{{- if gt $index 0 }}, {{ end -}}
                 {{- if eq $path "aix" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">AIX</a>
-				{{ else if eq $path "asset" }}
+				{{- else if eq $path "asset" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">ASSET</a>
-				{{ else  if eq $path "aws" }}
+				{{- else  if eq $path "aws" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">AWS</a>
-				{{ else if eq $path "ditc" }}
+				{{- else if eq $path "ditc" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">DITC</a>
-				{{ else if eq $path "github" }}
+				{{- else if eq $path "github" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">GitHub</a>
-				{{ else if eq $path "iac" }}
+				{{- else if eq $path "iac" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">IaC</a>
-				{{ else if eq $path "ibm" }}
+				{{- else if eq $path "ibm" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">IBM</a>
-				{{ else if eq $path "ldap" }}
+				{{- else if eq $path "ldap" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">LDAP</a>
-				{{ else if eq $path "ssh" }}
+				{{- else if eq $path "ssh" }}
 					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">SSH</a>
-				{{ else }}
+				{{- else }}
 				    <a class="meta__link" href="{{ .RelPermalink }}" rel="tag">{{ .Title }}</a>
-                {{ end -}}
+                {{- end -}}
 			{{- end }}
 		{{- end }}
 	</span>
