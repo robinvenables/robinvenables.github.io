@@ -1,0 +1,36 @@
+{{- $taxo := "tags" -}}
+{{- with .Param $taxo -}}
+<div class="meta__item-tags meta__item">
+	{{- partial "svg/tag.svg" (dict "class" "meta__icon") -}}
+	<span class="meta__text">
+		{{- range $index, $tag := . }}
+			{{- $url := urls.Parse ($tag | urlize) -}}
+			{{- $path := $url.Path -}}
+			{{- with $.Site.GetPage (printf "/%s/%s" $taxo $path) }}
+				{{- if gt $index 0 }}, {{ end -}}
+                {{- if eq $path "aix" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">AIX</a>
+				{{ else if eq $path "asset" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">ASSET</a>
+				{{ else  if eq $path "aws" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">AWS</a>
+				{{ else if eq $path "ditc" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">DITC</a>
+				{{ else if eq $path "github" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">GitHub</a>
+				{{ else if eq $path "iac" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">IaC</a>
+				{{ else if eq $path "ibm" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">IBM</a>
+				{{ else if eq $path "ldap" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">LDAP</a>
+				{{ else if eq $path "ssh" }}
+					<a class="meta__link" href="{{ .RelPermalink }}" rel="category">SSH</a>
+				{{ else }}
+				    <a class="meta__link" href="{{ .RelPermalink }}" rel="tag">{{ .Title }}</a>
+                {{ end -}}
+			{{- end }}
+		{{- end }}
+	</span>
+</div>
+{{- end }}
