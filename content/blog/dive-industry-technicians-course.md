@@ -4,7 +4,6 @@ date: 2021-11-08T18:00:00Z
 draft: false
 categories: ["diving"]
 tags: ["asset","ditc","training"]
-thumbnail: "/images/stats-2000.jpeg"
 lead: "Back to school for my introduction to SCUBA equipment maintenance"
 summary: "I started my Dive Industry Technicians Course (DITC) with STATS 2000 in Morecambe today. There are 3 of us on the course; two of us are divers and the third works in a commercial diving environment."
 ---

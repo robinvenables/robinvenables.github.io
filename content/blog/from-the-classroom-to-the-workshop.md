@@ -4,7 +4,6 @@ date: 2021-11-11T18:00:00Z
 draft: false
 categories: ["diving"]
 tags: ["asset","ditc","regulator","training","workshop"]
-thumbnail: "/images/pieces.jpeg"
 lead: "Of course I can take it apart"
 summary: "Day 4 of the course and we were in the workshop tackling 1st stage disassembly and reassembly. First up were a Northern Diver and an Apeks DST, both diaphragm designs. The instructor took us through each step and then got us to do the same."
 ---
