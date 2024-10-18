@@ -14,7 +14,7 @@ theme = "mainroad"
   schema = true # Enable Schema
   twitter_cards = true # Enable Twitter Cards if true
   readmore = false # Show "Read more" button in list if true
-  authorbox = true # Show authorbox at bottom of pages if true
+  authorbox = false # Show authorbox at bottom of pages if true
   toc = true # Enable Table of Contents
   pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
   post_meta = ["date", "categories", "tags"] # Order of post meta information
@@ -23,11 +23,6 @@ theme = "mainroad"
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
   customCSS = ["css/robinvenables.css"]
   customJS = ["js/custom.js"] # Include custom JS files
-
-[Params.Author] # Used in authorbox
-  name = "Robin Venables"
-  bio = "I specialize in architecting, building, and managing physical, virtual, and cloud-based environments. My expertise centres around IBM AIX on POWER hardware and PowerVS in IBM Cloud. I bring extensive knowledge in the design, configuration, and support of storage management, backup, and clustering solutions, ensuring efficient and reliable IT infrastructures for my clients."
-  avatar = "images/avatar.png"
 
 [Params.style.vars]
   highlightColor = "#3eb489" # Override highlight color
