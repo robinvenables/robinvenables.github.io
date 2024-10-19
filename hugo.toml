@@ -34,7 +34,7 @@ theme = "mainroad"
   fontFamilySecondary = "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
 
 [Params.logo]
-  image = "images/logo.png" # Logo image. Path relative to "static"
+  image = "images/logo.jpeg" # Logo image. Path relative to "static"
   subtitle = "Husband • Father • Dog Owner • Scuba Diver • IT Consultant" # Logo subtitle
 
 [Params.thumbnail]
