@@ -18,7 +18,7 @@ The beach is in a charming bay, well-protected from the breeze and a definite su
 
 Eager to escape the sun, we quickly suited up. Once in the refreshing water, we ran through a few skill checks, including mask clearing and regulator recovery. Then, we set off for an underwater tour of the bay. Along the right side, we swam around and over large boulders before crossing the sparse entrance to the bay, eventually reaching a deep trench at the base of the wall. We swam up the trench, navigating over massive boulders until we reached about 5 meters. A leisurely swim towards our exit point took care of our safety stop, and soon we were back on the beach, facing the sweltering heat once again.
 
-Throughout the dive, we saw an abundance of fish — more marine life than we've encountered on previous dives at nearby Elephant's Cave/Lighthouse Wall or Marathi/Minnewaska Wreck over the past three years.
+Throughout the dive, we saw an abundance of fish — more marine life than we've encountered on previous dives at nearby Elephant Cave/Lighthouse Wall or Marathi/Minnewaska Wreck over the past three years.
 
 Now it’s time to book some more dives, both for us and for family who will be joining us in a couple of weeks!
 
