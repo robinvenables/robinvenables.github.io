@@ -1,7 +1,7 @@
 ---
 date: 2023-08-20T09:00:00+03:00
 title: 'Diving the Elephant Cave'
-draft: true
+draft: false
 categories: ["diving"]
 tags: ["boat", "crete", "family", "padi"]
 lead: "Sharing the sights with visiting family"
