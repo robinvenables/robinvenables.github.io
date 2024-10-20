@@ -10,7 +10,7 @@ summary: "My wife and I realized it had been far too long since our last dive �
 
 <center>{{< figure src="/images/koutalas-beach.jpeg" title="Koutalas Beach, Apokoronas, Crete" >}}</center>
 
-My wife and I realized it had been far too long since our last dive — back in October 2021! Wanting to ease back into it the right way, we booked refresher dives with [Omega Divers][1] for this morning.
+My wife and I realized it had been far too long since our last dive — back in October 2021! Wanting to ease back into it the right way, we booked refresher dives with [Omega Divers][1], a PADI 5-star Instructor Development Center.
 
 After filling out the usual paperwork and waiting for the Discover Scuba Diving briefing to wrap up, we loaded our gear onto the pickup truck and hopped into the minibus. A short 10-minute drive brought us to Koutalas Beach, down a steep, narrow, and winding road. Thankfully, no goats were harmed in the making of this trip!
 
