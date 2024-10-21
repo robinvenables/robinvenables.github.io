@@ -59,4 +59,4 @@ theme = "mainroad"
   github = "robinvenables"
 
 [pagination]
-  pagerSize = 7
+  pagerSize = 5
