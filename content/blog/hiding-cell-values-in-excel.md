@@ -30,13 +30,13 @@ Hiding zero values in a range or even a whole worksheet is easy. However, I want
 
 - Ensure the Style is "Classic" and then select "Use a formula to determine which cells to format" in the drop-down. Enter "=$b2=0" in the text box. Obviously, my data is in Column B and starts in Row 2, so you will need to to adjust this as necessary.
 
-<center>{{< figure src="/images/excel-1.png" width="505">}}</center>
+<center>{{< figure src="/img/excel-1.png" width="505">}}</center>
 
 - In the "Format with" drop-down select "Customised Format..."
 
 - Select "Custom" under "Category" and then select (or enter) ";;;" for the "Type"
 
-<center>{{< figure src="/images/excel-2.png" width="600">}}</center>
+<center>{{< figure src="/img/excel-2.png" width="600">}}</center>
 
 - Select "OK" twice
 

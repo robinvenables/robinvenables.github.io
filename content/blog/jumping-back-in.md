@@ -8,7 +8,7 @@ lead: "A refresher dive to restart our favourite hobby"
 summary: "My wife and I realized it had been far too long since our last dive — back in October 2021! Wanting to ease back into it the right way, we booked refresher dives with Omega Divers for this morning."
 ---
 
-<center>{{< figure src="/images/koutalas-beach.jpeg" title="Koutalas Beach, Apokoronas, Crete" >}}</center>
+<center>{{< figure src="/img/koutalas-beach.jpeg" title="Koutalas Beach, Apokoronas, Crete" >}}</center>
 
 My wife and I realized it had been far too long since our last dive — back in October 2021! Wanting to ease back into it the right way, we booked refresher dives with [Omega Divers][1], a PADI 5-star Instructor Development Center.
 

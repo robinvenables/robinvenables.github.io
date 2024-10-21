@@ -8,7 +8,7 @@ lead: "Of course I can take it apart"
 summary: "Day 4 of the course and we were in the workshop tackling 1st stage disassembly and reassembly. First up were a Northern Diver and an Apeks DST, both diaphragm designs. The instructor took us through each step and then got us to do the same."
 ---
 
-<center>{{< figure src="/images/pieces.jpeg" title="A disassembled SCUBAPRO Mk 10 1st Stage regulator" >}}</center>
+<center>{{< figure src="/img/pieces.jpeg" title="A disassembled SCUBAPRO Mk 10 1st Stage regulator" >}}</center>
 
 Day 4 of the course and we were in the workshop tackling 1st Stage disassembly and reassembly. First up were a Northern Diver and an Apeks DST, both diaphragm designs. The instructor took us through each step and then got us to do the same. The first one was a challenge but it worked well; no components were left over, it locked up correctly and there was no creep. The second one was easier, even with the differences between the two, but it too performed as expected.
 
