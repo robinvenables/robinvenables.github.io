@@ -1,7 +1,10 @@
 baseURL = 'https://robinvenables.com/'
 languageCode = 'en-gb'
 title = 'Robin Venables'
-theme = "mainroad"
+
+[module]
+  [[module.imports]]
+    path = 'github.com/vimux/mainroad'
 
 [markup]
   [markup.goldmark]
