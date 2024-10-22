@@ -18,7 +18,7 @@ We were introduced to the excellent CCR Mixer app from Mikael Fridholm. This all
 
 Before moving to the workshop I calculated the steps for filling a cylinder with EANx 32 at 200 bar from a cylinder with EANx 40 at 50 bar.
 
-<center>{{< figure src="/images/mix.jpeg" title="CCR Mixer calculation results" >}}</center>
+<center>{{< figure src="/img/mix.jpeg" title="CCR Mixer calculation results" >}}</center>
 
 I was using the partial pressure method so I added the required 15.8 bar of Oxygen, then air (which was actually stored in a bank) to bring the final pressure to 200 bar. I left the cylinder to cool, rechecked the pressure, topped up with air and then analysed the mix to confirm it was within 1% of the target.
 
