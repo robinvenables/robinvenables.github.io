@@ -8,7 +8,7 @@ lead: "A new location with fantastic sights"
 summary: "Last April, we visited Dive2gether, a PADI 5-Star IDC, to check out their facilities. Recently, while enjoying a beach day in Plakias with visiting relatives, we decided to book a couple of boat dives with them. Since we were bringing our own equipment, the dive center requested to test our BCDs and regulators to ensure everything was in top condition for safety."
 ---
 
-<center>{{< figure src="/img/paligremnos-wall.jpeg" title="Paligremnos Wall, Plakias, Crete" >}}</center>
+<center>{{< figure src="/img/paligremnos-wall.jpeg" title="Paligremnos Wall, Plakias, Crete" style="border:1px solid gray" >}}</center>
 
 Last April, we visited [Dive2gether][1], a PADI 5-Star IDC, to check out their facilities. Recently, while enjoying a beach day in Plakias with visiting relatives, we decided to book a couple of boat dives with them. Since we were bringing our own equipment, the dive center requested to test our BCDs and regulators to ensure everything was in top condition for safety.
 

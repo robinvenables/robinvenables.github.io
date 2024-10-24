@@ -6,7 +6,7 @@ menus: main
 post_meta: []
 ---
 
-<center>{{< figure src="/img/avatar.png" height="90" width="90" >}}</center>
+<center>{{< figure src="/img/avatar.png" height="90" width="90" style="border:1px solid gray" >}}</center>
 
 I specialise in architecting, building, and managing physical, virtual, and cloud-based computing environments. My expertise centres around [IBM AIX][1] on [IBM POWER hardware][2] and [IBM PowerVS][3] in [IBM Cloud][4]. I have additional experience with various Linux variants including [Red Hat Enterprise Linux][5], [Ubuntu][6] and [Amazon Linux 2][7]. I bring extensive knowledge in the design, configuration, and support of storage management, backup, and clustering solutions, ensuring efficient and reliable IT infrastructures for my clients.
 

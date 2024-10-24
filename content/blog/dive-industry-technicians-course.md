@@ -8,7 +8,7 @@ lead: "Back to school for my introduction to SCUBA equipment maintenance"
 summary: "I started my Dive Industry Technicians Course (DITC) with STATS 2000 in Morecambe today. There are 3 of us on the course; two of us are divers and the third works in a commercial diving environment."
 ---
 
-<center>{{< figure src="/img/stats-2000.jpeg" title="The STATS 2000 Training Centre in Morecambe" >}}</center>
+<center>{{< figure src="/img/stats-2000.jpeg" title="The STATS 2000 Training Centre in Morecambe" style="border:1px solid gray" >}}</center>
 
 
 I started my Dive Industry Technicians Course (DITC) with [STATS 2000][1] in Morecambe today. There are three of us on the course: two divers, including myself, and another participant who works in a commercial diving environment.

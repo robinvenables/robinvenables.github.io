@@ -8,7 +8,7 @@ lead: "Sharing the sights with visiting family"
 summary: "This summer, my wife’s daughter came to stay with us, bringing along our grandson and her partner, Chris. Chris is a PADI-certified diver, although it’s been a few years since his last dive. When we mentioned the possibility of diving during their visit, Chris lit up with excitement and wasted no time booking his PADI ReActivate session."
 ---
 
-<center>{{< figure src="/img/elephant-cave.jpeg" title="The entrance to Elephant Cave, Apokoronas, Crete" >}}</center>
+<center>{{< figure src="/img/elephant-cave.jpeg" title="The entrance to Elephant Cave, Apokoronas, Crete" style="border:1px solid gray" >}}</center>
 
 This summer, my wife’s daughter came to stay with us, bringing along our grandson and her partner, Chris. Chris is a PADI-certified diver, although it’s been a few years since his last dive. When we mentioned the possibility of diving during their visit, Chris lit up with excitement and wasted no time booking his PADI ReActivate session.
 
