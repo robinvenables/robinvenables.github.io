@@ -1,0 +1,32 @@
+title = 'Robin Venables'
+author = 'Robin Venables'
+copyright = 'Copyright &copy; 2020-{{ YEAR }} Robin Venables. All rights reserved'
+description = '''
+Husband
+Father
+Dog Owner
+Scuba Diver
+IT Consultant
+'''
+profilePicture = 'images/profile.jpeg'
+singleDateFormat = 'Monday 2 January 2006'
+indexDateFormat = '2 January 2006'
+listDateFormat = '2 January'
+localizedDates = true
+disableTitleCapitalization = true
+disableArchiveTitleStyling  = true
+disableThemeSwitcher = true
+enableMediumZoom = false
+postSectionName = 'blog'
+mainSections = ["blog"]
+postMeta = ['date']
+
+[[socialIcons]]
+icon = 'fab fa-facebook'
+title = 'Facebook'
+url = 'https://www.facebook.com/robin.venables'
+
+[[socialIcons]]
+icon = 'fab fa-github'
+title = 'GitHub'
+url = 'https://github.com/robinvenables'

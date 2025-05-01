@@ -1,0 +1,50 @@
+{{ define "main" }}
+  <div
+    class="post {{ with .Site.Params.doNotLoadAnimations }}
+      .
+    {{ else }}
+      animated fadeInDown
+    {{ end }}"
+  >
+    {{ if .Params.thumbnail }}
+      <div class="post__thumbnail-wrapper">
+        <img class="post__thumbnail" src="{{ .Params.thumbnail | relURL }}" alt="Thumbnail image" />
+      </div>
+    {{ end }}
+    <div class="post__content">
+      {{ if (eq .Site.Params.disableTitleCapitalization true) }}
+        <h1>{{ .Title }}</h1>
+      {{ else }}
+        <h1>{{ title .Title }}</h1>
+      {{ end }}
+      {{ if or (eq .Type .Site.Params.postSectionName) (and (isset .Params "series") (gt (len .Params.series) 0) (eq (index .Params.series 0) "archive")) }}
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text">
+              {{ .Date.Format .Site.Params.singleDateFormat }}
+            </span>
+          </li>
+        </ul>
+      {{ end }}
+
+      {{ .Content }}
+
+      {{ if and (isset .Params "series") (gt (len .Params.series) 0) (ne (index .Params.series 0) "archive") }}
+        {{- partial "series.html" . -}}
+      {{- end -}}
+
+    </div>
+
+    <div class="post__footer">
+      {{ with .Page.Params.Categories }}
+        {{ partial "taxonomy/categories.html" . }}
+      {{ end }}
+
+      {{ with .Page.Params.Tags }}
+        {{ partial "taxonomy/tags.html" . }}
+      {{ end }}
+    </div>
+
+  </div>
+{{ end }}

@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <div
+    class="archive {{ with .Site.Params.doNotLoadAnimations }}
+      .
+    {{ else }}
+      animated fadeInDown
+    {{ end }}"
+  >
+    <div class="archive__heading">{{ replace .Title "-" " " | title }}</div>
+
+    {{ range .Data.Pages.GroupByDate "2006" }}
+      <div class="archive__heading">{{ .Key }}</div>
+      {{ range .Pages }}
+        <ul class="archive__list">
+          <li class="archive__list-item">
+            {{ if (eq .Site.Params.disableArchiveTitleStyling true) }}
+              <a class="archive__list-title" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            {{ else }}
+              <a class="archive__list-title" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ upper .Title }}</a>
+            {{ end }}
+            <div class="archive__list-date">
+              {{ .Date.Format .Site.Params.listDateFormat }}
+            </div>
+          </li>
+        </ul>
+      {{ end }}
+
+    {{ end }}
+  </div>
+{{ end }}

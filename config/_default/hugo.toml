@@ -1,0 +1,4 @@
+baseURL = 'https://robinvenables.com/'
+languageCode = 'en-gb'
+ignoreLogs = ['warning-goldmark-raw-html']
+

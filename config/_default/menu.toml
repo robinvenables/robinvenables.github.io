@@ -1,0 +1,17 @@
+[[main]]
+name = 'Home'
+identifier = 'home'
+weight = 100
+url = '/'
+
+[[main]]
+name = 'Archive'
+identifier = 'archive'
+weight = 200
+url = '/series/archive'
+
+[[main]]
+name = 'About'
+weight = 1000
+identifier = 'about'
+url = '/about/'

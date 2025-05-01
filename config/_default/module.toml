@@ -1,0 +1,4 @@
+  [imports]
+    path = 'github.com/lxndrblz/anatole'
+    disable = false
+
