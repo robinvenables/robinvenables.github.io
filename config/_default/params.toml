@@ -9,6 +9,7 @@ Scuba Diver
 IT Consultant
 '''
 profilePicture = 'images/profile.jpeg'
+favicon = '/favicons/'
 singleDateFormat = 'Monday 2 January 2006'
 indexDateFormat = '2 January 2006'
 listDateFormat = '2 January'
