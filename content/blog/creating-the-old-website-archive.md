@@ -4,6 +4,7 @@ date: '2025-05-03T07:00:00+03:00'
 draft: false
 categories: ["website"]
 tags: ["hugo"]
+summary: 'Having decided to include some of the old website as an Archive section, I needed a way to present this. I chose to implement it as a menu item, linking to a series, a feature provided by the Anatole theme.'
 ---
 
 Having decided to include some of the old website as an Archive section, I needed a way to present this. I chose to implement it as a menu item, linking to a series, a feature provided by the Anatole theme.
