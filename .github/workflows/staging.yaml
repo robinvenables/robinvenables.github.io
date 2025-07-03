@@ -28,7 +28,7 @@ jobs:
         sudo mv hugo /usr/local/bin/
 
     - name: Build Hugo Site
-      run: hugo --environment development --minify --baseURL https://staging.${WEBSITE} --buildDrafts --buildFuture --logLevel ${LOG_LEVEL}
+      run: hugo --environment staging --minify --baseURL https://staging.${WEBSITE} --buildDrafts --buildFuture --logLevel ${LOG_LEVEL}
 
     - name: Deploy to Synology NAS
       env:
