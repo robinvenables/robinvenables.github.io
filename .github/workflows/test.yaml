@@ -31,10 +31,11 @@ jobs:
       run: hugo --environment development --minify --baseURL https://test.${WEBSITE} --buildDrafts --buildFuture --logLevel ${LOG_LEVEL}
 
     - name: Deploy to Synology NAS
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      SSH_USER: ${{ secrets.SSH_USER }}        
-      SSH_PORT: ${{ secrets.SSH_PORT }}
-      SSH_TARGET_DIR: "/volume1/web/test.${WEBSITE}"
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SSH_USER: ${{ secrets.SSH_USER }}        
+        SSH_PORT: ${{ secrets.SSH_PORT }}
+        SSH_TARGET_DIR: "/volume1/web/test.${WEBSITE}"
       run: |
         mkdir .ssh && chmod 700 .ssh && echo "${SSH_PRIVATE_KEY}" > .ssh/id_ed25519 && chmod 600 .ssh/id_ed25519
         tar -czf ${WEBSITE}.tar.gz -C public .
