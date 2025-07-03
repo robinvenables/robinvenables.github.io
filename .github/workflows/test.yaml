@@ -11,13 +11,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      WEBSITE: ${{ vars.WEBSITE }}
       HUGO_VERSION: ${{ vars.HUGO_VERSION }}
       LOG_LEVEL: ${{ vars.LOG_LEVEL }}
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      SSH_USER: ${{ secrets.SSH_USER }}        
-      SSH_PORT: ${{ secrets.SSH_PORT }}
-      SSH_TARGET_DIR: "/volume1/web/${WEBSITE}"
+      WEBSITE: ${{ vars.WEBSITE }}
 
     steps:
     - name: Checkout repository
@@ -32,12 +28,16 @@ jobs:
         sudo mv hugo /usr/local/bin/
 
     - name: Build Hugo Site
-      run: hugo --environment development --minify --baseURL https://${WEBSITE} --buildDrafts --buildFuture --logLevel ${LOG_LEVEL}
+      run: hugo --environment development --minify --baseURL https://test.${WEBSITE} --buildDrafts --buildFuture --logLevel ${LOG_LEVEL}
 
     - name: Deploy to Synology NAS
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_USER: ${{ secrets.SSH_USER }}        
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_TARGET_DIR: "/volume1/web/test.${WEBSITE}"
       run: |
         mkdir .ssh && chmod 700 .ssh && echo "${SSH_PRIVATE_KEY}" > .ssh/id_ed25519 && chmod 600 .ssh/id_ed25519
         tar -czf ${WEBSITE}.tar.gz -C public .
-        scp -o StrictHostKeyChecking=no -P ${SSH_PORT} -i .ssh/id_ed25519 -O ${WEBSITE}.tar.gz ${SSH_USER}@${WEBSITE}:
-        ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} -i .ssh/id_ed25519 ${SSH_USER}@${WEBSITE} "sudo tar -xzf ${WEBSITE}.tar.gz -C ${SSH_TARGET_DIR}"
-        ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} -i .ssh/id_ed25519 ${SSH_USER}@${WEBSITE} "rm -f ${WEBSITE}.tar.gz"
+        scp -o StrictHostKeyChecking=no -P ${SSH_PORT} -i .ssh/id_ed25519 -O ${WEBSITE}.tar.gz ${SSH_USER}@test.${WEBSITE}:
+        ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} -i .ssh/id_ed25519 ${SSH_USER}@test.${WEBSITE} "sudo tar -xzf ${WEBSITE}.tar.gz -C ${SSH_TARGET_DIR}"
+        ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} -i .ssh/id_ed25519 ${SSH_USER}@test.${WEBSITE} "rm -f ${WEBSITE}.tar.gz"
