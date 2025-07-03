@@ -36,7 +36,7 @@ jobs:
 
     - name: Deploy to Synology NAS
       run: |
-        echo "${SSH_PRIVATE_KEY}" > .ssh/id_ed25519 && chmod 600 .ssh/id_ed25519
+        mkdir .ssh && chmod 700 .ssh && echo "${SSH_PRIVATE_KEY}" > .ssh/id_ed25519 && chmod 600 .ssh/id_ed25519
         tar -czf ${WEBSITE}.tar.gz -C public .
         scp -o StrictHostKeyChecking=no -P ${SSH_PORT} -i .ssh/id_ed25519 -O ${WEBSITE}.tar.gz ${SSH_USER}@${WEBSITE}:
         ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} -i .ssh/id_ed25519 ${SSH_USER}@${WEBSITE} "sudo rm -fR ${SSH_TARGET_DIR}/*"
