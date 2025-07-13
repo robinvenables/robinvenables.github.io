@@ -28,7 +28,7 @@ jobs:
         sudo mv hugo /usr/local/bin/
 
     - name: Build Hugo Site
-      run: hugo --environment staging --minify --baseURL https://staging.${WEBSITE} --buildDrafts --buildFuture --logLevel ${LOG_LEVEL}
+      run: hugo --environment staging --minify --baseURL https://staging.${WEBSITE} --logLevel ${LOG_LEVEL}
 
     - name: Deploy to Synology NAS
       env:
@@ -36,8 +36,9 @@ jobs:
         SSH_USER: ${{ secrets.SSH_USER }}        
         SSH_PORT: ${{ secrets.SSH_PORT }}
       run: |
-        mkdir .ssh && chmod 700 .ssh && echo "${SSH_PRIVATE_KEY}" > .ssh/id_ed25519 && chmod 600 .ssh/id_ed25519
-        tar -czf ${WEBSITE}.tar.gz -C public .
-        scp -o StrictHostKeyChecking=no -P ${SSH_PORT} -i .ssh/id_ed25519 -O ${WEBSITE}.tar.gz ${SSH_USER}@staging.${WEBSITE}:
-        ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} -i .ssh/id_ed25519 ${SSH_USER}@staging.${WEBSITE} "sudo tar -xzf ${WEBSITE}.tar.gz -C /volume1/web/staging.${WEBSITE}"
-        ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} -i .ssh/id_ed25519 ${SSH_USER}@staging.${WEBSITE} "rm -f ${WEBSITE}.tar.gz"
+        mkdir /home/runner/.ssh && \
+          chmod 700 /home/runner/.ssh && \
+          echo "${SSH_PRIVATE_KEY}" > /home/runner/.ssh/id_ed25519 && \
+          chmod 600 /home/runner/.ssh/id_ed25519
+        rsync -drvze "ssh -p ${SSH_PORT} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /home/runner/.ssh/id_ed25519" public/* ${SSH_USER}@staging.${WEBSITE}:staging.${WEBSITE}/public
+        ssh -p ${SSH_PORT} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /home/runner/.ssh/id_ed25519 ${SSH_USER}@staging.${WEBSITE} "sudo rsync -drv staging.${WEBSITE}/public/* /volume1/web/staging.${WEBSITE}"
