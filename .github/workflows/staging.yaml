@@ -1,4 +1,4 @@
-name: Deploy staging.robinvenables.com to Synology NAS
+name: Deploy staging.robinvenables.com
 
 on:
   push:
@@ -13,32 +13,62 @@ jobs:
     env:
       HUGO_VERSION: ${{ vars.HUGO_VERSION }}
       LOG_LEVEL: ${{ vars.LOG_LEVEL }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_USER: ${{ secrets.SSH_USER }}        
       WEBSITE: ${{ vars.WEBSITE }}
 
     steps:
+    - name: Setup environment
+      run: |
+        BASE_URL="https://staging.${WEBSITE}"
+        echo "BASE_URL=${BASE_URL}" >> ${GITHUB_ENV}
+        HUGO_DOWNLOAD="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+        echo "HUGO_DOWNLOAD=${HUGO_DOWNLOAD}" >> ${GITHUB_ENV}
+        REMOTE_HOST="${SSH_USER}@staging.${WEBSITE}"
+        echo "REMOTE_HOST=${REMOTE_HOST}" >> ${GITHUB_ENV}
+        RSYNC_OPTIONS="--compress --delete --recursive --verbose"
+        echo "RSYNC_OPTIONS=${RSYNC_OPTIONS}" >> ${GITHUB_ENV}
+        SSH_OPTIONS="-p ${SSH_PORT} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /home/runner/.ssh/id_ed25519"
+        echo "SSH_OPTIONS=${SSH_OPTIONS}" >> ${GITHUB_ENV}
+        TRANSFER_DIR="staging.${WEBSITE}/public"
+        echo "TRANSFER_DIR=${TRANSFER_DIR}" >> ${GITHUB_ENV}
+        WEBSITE_DIR="/volume1/web/staging.${WEBSITE}"
+        echo "WEBSITE_DIR=${WEBSITE_DIR}" >> ${GITHUB_ENV}
+
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         submodules: 'true'
 
-    - name: Install Hugo      
-      run: |
-        wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
-        tar -xzf hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
-        sudo mv hugo /usr/local/bin/
-
-    - name: Build Hugo Site
-      run: hugo --environment staging --minify --baseURL https://staging.${WEBSITE} --logLevel ${LOG_LEVEL}
-
-    - name: Deploy to Synology NAS
+    - name: Install Hugo
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        SSH_USER: ${{ secrets.SSH_USER }}        
-        SSH_PORT: ${{ secrets.SSH_PORT }}
+        HUGO_DOWNLOAD: ${{ env.HUGO_DOWNLOAD }}    
       run: |
-        mkdir /home/runner/.ssh && \
-          chmod 700 /home/runner/.ssh && \
-          echo "${SSH_PRIVATE_KEY}" > /home/runner/.ssh/id_ed25519 && \
-          chmod 600 /home/runner/.ssh/id_ed25519
-        rsync -drvze "ssh -p ${SSH_PORT} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /home/runner/.ssh/id_ed25519" public/* ${SSH_USER}@staging.${WEBSITE}:staging.${WEBSITE}/public
-        ssh -p ${SSH_PORT} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /home/runner/.ssh/id_ed25519 ${SSH_USER}@staging.${WEBSITE} "sudo rsync -drv staging.${WEBSITE}/public/* /volume1/web/staging.${WEBSITE}"
+          wget -O ${{ runner.temp }}/hugo.deb ${HUGO_DOWNLOAD} && \
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+    - name: Build website
+      env:
+        BASE_URL: ${{ env.BASE_URL}}
+      run: hugo --environment staging --minify --baseURL ${BASE_URL} --logLevel ${LOG_LEVEL}
+
+    - name: Setup SSH key
+      run: |
+        mkdir /home/runner/.ssh
+        chmod 700 /home/runner/.ssh
+        echo "${SSH_PRIVATE_KEY}" > /home/runner/.ssh/id_ed25519
+        chmod 600 /home/runner/.ssh/id_ed25519
+
+    - name: rsync to Synology NAS
+      env:
+        REMOTE_HOST: ${{ env.REMOTE_HOST }}
+        RSYNC_OPTIONS: ${{ env.RSYNC_OPTIONS }}
+        SSH_OPTIONS: ${{ env.SSH_OPTIONS }}
+      run: rsync ${RSYNC_OPTIONS} --rsh="ssh ${SSH_OPTIONS}" public/* ${REMOTE_HOST}:${TRANSFER_DIR}
+
+    - name: Copy to website directory
+      env:
+        REMOTE_HOST: ${{ env.REMOTE_HOST }}
+        SSH_OPTIONS: ${{ env.SSH_OPTIONS }}
+      run: ssh ${SSH_OPTIONS} ${REMOTE_HOST} "sudo cp -pr ${TRANSFER_DIR}/* ${WEBSITE_DIR}"
