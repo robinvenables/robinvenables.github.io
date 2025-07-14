@@ -43,28 +43,21 @@ jobs:
 
     - name: Install Hugo
       run: |
-          wget -O ${{ runner.temp }}/hugo.deb ${{ env.HUGO_DOWNLOAD }} && \
-          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+        wget -O ${{ runner.temp }}/hugo.deb ${{ env.HUGO_DOWNLOAD }} && \
+        sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
     - name: Build website
       run: hugo --environment staging --minify --baseURL ${{ env.BASE_URL }} --logLevel ${LOG_LEVEL}
 
     - name: Setup SSH key
       run: |
-        mkdir /home/runner/.ssh
-        chmod 700 /home/runner/.ssh
-        echo "${SSH_PRIVATE_KEY}" > /home/runner/.ssh/id_ed25519
-        chmod 600 /home/runner/.ssh/id_ed25519
+        mkdir /home/runner/.ssh && \
+          chmod 700 /home/runner/.ssh && \
+          echo "${SSH_PRIVATE_KEY}" > /home/runner/.ssh/id_ed25519 && \
+          chmod 600 /home/runner/.ssh/id_ed25519
 
     - name: rsync to Synology NAS
-      env:
-        REMOTE_HOST: ${{ env.REMOTE_HOST }}
-        RSYNC_OPTIONS: ${{ env.RSYNC_OPTIONS }}
-        SSH_OPTIONS: ${{ env.SSH_OPTIONS }}
-      run: rsync ${RSYNC_OPTIONS} --rsh="ssh ${SSH_OPTIONS}" public/* ${REMOTE_HOST}:${TRANSFER_DIR}
+      run: rsync ${{ env.RSYNC_OPTIONS }} --rsh="ssh ${{ env.SSH_OPTIONS }}" public/* ${{ env.REMOTE_HOST }}:${{ env.TRANSFER_DIR }}
 
     - name: Copy to website directory
-      env:
-        REMOTE_HOST: ${{ env.REMOTE_HOST }}
-        SSH_OPTIONS: ${{ env.SSH_OPTIONS }}
-      run: ssh ${SSH_OPTIONS} ${REMOTE_HOST} "sudo cp -pr ${TRANSFER_DIR}/* ${WEBSITE_DIR}"
+      run: ssh ${{ env.SSH_OPTIONS }} ${{ env.REMOTE_HOST }}"sudo cp -pr ${{ env.TRANSFER_DIR }}/* ${{ env.WEBSITE_DIR }}"
