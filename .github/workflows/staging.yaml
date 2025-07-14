@@ -60,4 +60,4 @@ jobs:
       run: rsync ${{ env.RSYNC_OPTIONS }} --rsh="ssh ${{ env.SSH_OPTIONS }}" public/* ${{ env.REMOTE_HOST }}:${{ env.TRANSFER_DIR }}
 
     - name: Copy to website directory
-      run: ssh ${{ env.SSH_OPTIONS }} ${{ env.REMOTE_HOST }}"sudo cp -pr ${{ env.TRANSFER_DIR }}/* ${{ env.WEBSITE_DIR }}"
+      run: ssh ${{ env.SSH_OPTIONS }} ${{ env.REMOTE_HOST }} "sudo cp -pr ${{ env.TRANSFER_DIR }}/* ${{ env.WEBSITE_DIR }}"
