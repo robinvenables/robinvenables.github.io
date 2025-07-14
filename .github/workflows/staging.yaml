@@ -42,16 +42,12 @@ jobs:
         submodules: 'true'
 
     - name: Install Hugo
-      env:
-        HUGO_DOWNLOAD: ${{ env.HUGO_DOWNLOAD }}    
       run: |
-          wget -O ${{ runner.temp }}/hugo.deb ${HUGO_DOWNLOAD} && \
+          wget -O ${{ runner.temp }}/hugo.deb ${{ env.HUGO_DOWNLOAD }} && \
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
     - name: Build website
-      env:
-        BASE_URL: ${{ env.BASE_URL}}
-      run: hugo --environment staging --minify --baseURL ${BASE_URL} --logLevel ${LOG_LEVEL}
+      run: hugo --environment staging --minify --baseURL ${{ env.BASE_URL }} --logLevel ${LOG_LEVEL}
 
     - name: Setup SSH key
       run: |
