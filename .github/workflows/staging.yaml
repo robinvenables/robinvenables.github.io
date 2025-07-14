@@ -27,7 +27,7 @@ jobs:
         echo "HUGO_DOWNLOAD=${HUGO_DOWNLOAD}" >> ${GITHUB_ENV}
         REMOTE_HOST="${SSH_USER}@staging.${WEBSITE}"
         echo "REMOTE_HOST=${REMOTE_HOST}" >> ${GITHUB_ENV}
-        RSYNC_OPTIONS="--compress --delete --recursive --verbose"
+        RSYNC_OPTIONS="--compress --delete --recursive"
         echo "RSYNC_OPTIONS=${RSYNC_OPTIONS}" >> ${GITHUB_ENV}
         SSH_OPTIONS="-p ${SSH_PORT} -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /home/runner/.ssh/id_ed25519"
         echo "SSH_OPTIONS=${SSH_OPTIONS}" >> ${GITHUB_ENV}
@@ -43,7 +43,7 @@ jobs:
 
     - name: Install Hugo
       run: |
-        wget -O ${{ runner.temp }}/hugo.deb ${{ env.HUGO_DOWNLOAD }} && \
+        wget --quiet --output-document=${{ runner.temp }}/hugo.deb ${{ env.HUGO_DOWNLOAD }} && \
         sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
     - name: Build website
