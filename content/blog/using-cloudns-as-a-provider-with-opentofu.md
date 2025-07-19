@@ -1,13 +1,13 @@
 ---
 title: "Using ClouDNS as a Provider With OpenTofu"
 date: 2025-07-21T00:00:00+03:00
-draft: true
+draft: false
 categories: ["devops"]
-tags: ["cloudns","iac","opentofu","terraform"]
+tags: ["cloudns","iac","opentofu"]
 summary: "In today’s fast-paced digital landscape, managing DNS infrastructure efficiently is crucial for seamless website performance and reliability. OpenTofu, a powerful Infrastructure as Code (IaC) tool, simplifies DNS management through automation and streamlined configuration. When paired with ClouDNS (a robust DNS hosting service known for its scalability and reliability) you can manage DNS records with precision and ease."
 ---
 
-In today’s fast-paced digital landscape, managing DNS infrastructure efficiently is crucial for seamless website performance and reliability. OpenTofu, a powerful Infrastructure as Code (IaC) tool, simplifies DNS management through automation and streamlined configuration. When paired with ClouDNS (a robust DNS hosting service known for its scalability and reliability) you can manage DNS records with precision and ease. This blog post provides a comprehensive guide on how to integrate ClouDNS as a provider within your OpenTofu configuration, ensuring optimal DNS management for your projects.
+In today’s fast-paced digital landscape, managing DNS infrastructure efficiently is crucial for seamless website performance and reliability. [OpenTofu][1], a powerful Infrastructure as Code (IaC) tool, simplifies DNS management through automation and streamlined configuration. When paired with [ClouDNS][2] (a robust DNS hosting service known for its scalability and reliability) you can manage DNS records with precision and ease. This post provides an introduction to integrating ClouDNS as a provider within your OpenTofu configuration, ensuring optimal DNS management for your projects.
 
 #### Prerequisites
 
@@ -28,6 +28,15 @@ In today’s fast-paced digital landscape, managing DNS infrastructure efficient
 - Insert the following provider block:
 
 ```hcl
+terraform {
+  required_providers {
+    cloudns = {
+      source  = "Cloudns/cloudns"
+      version = "~> 1.0"
+    }
+  }
+}
+
 provider "cloudns" {
   auth_id  = "your_api_id"
   auth_password = "your_api_password"
@@ -42,7 +51,7 @@ Here’s an example of adding an A record:
 
 ```hcl
 resource "cloudns_record" "example_a_record" {
-  zone.      = "example.com"
+  zone       = "example.com"
   type       = "A"
   name       = "www"
   ttl        = 3600
@@ -66,3 +75,6 @@ Confirm the apply when prompted. OpenTofu will now communicate with ClouDNS to c
 #### Conclusion
 
 By integrating ClouDNS with OpenTofu, you gain powerful control over your DNS management through automation and code-driven configurations. This guide has walked you through obtaining API credentials, configuring the provider, defining DNS records, and applying changes efficiently. Whether you're managing a single domain or orchestrating a complex network of DNS records, this setup enhances scalability, reliability, and operational efficiency. Embrace the power of OpenTofu and ClouDNS to streamline your infrastructure management today.
+
+[1]: https://opentofu.org
+[2]: https://www.cloudns.net
