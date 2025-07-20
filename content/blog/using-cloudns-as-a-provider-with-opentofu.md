@@ -25,7 +25,7 @@ In today’s fast-paced digital landscape, managing DNS infrastructure efficient
 #### Prepare Your OpenTofu Configuration
 
 - Create a new OpenTofu configuration file main.tf or modify an existing one.
-- Insert the following provider block:
+- Insert the following provider information, replacing your_api_id and your_api_password with the credentials obtained earlier:
 
 ```hcl
 terraform {
@@ -42,8 +42,6 @@ provider "cloudns" {
   auth_password = "your_api_password"
 }
 ```
-
-Replace your_api_id and your_api_password with the credentials obtained earlier.
 
 #### Define Your DNS Records
 
