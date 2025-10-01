@@ -1,0 +1,3 @@
+[submodule "static/testing/Resources"]
+	path = static/testing/Resources
+	url = git@github.com:robinvenables/Resources.git
