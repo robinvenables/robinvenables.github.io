@@ -21,6 +21,7 @@ enableMediumZoom = false
 postSectionName = 'blog'
 mainSections = ["blog"]
 postMeta = ['date']
+enableRobotsTXT=false
 
 [[socialIcons]]
 icon = 'fab fa-facebook'
