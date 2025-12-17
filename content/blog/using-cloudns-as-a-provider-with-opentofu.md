@@ -1,5 +1,5 @@
 ---
-title: "Using ClouDNS as a Provider With OpenTofu"
+title: "Using ClouDNS as a provider with OpenTofu"
 date: 2025-07-21T00:00:00+03:00
 draft: false
 categories: ["devops"]
