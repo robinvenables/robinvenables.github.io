@@ -13,11 +13,11 @@ theme = "gokarna"
 [params]
   mainSections = ["posts", "reviews"]
   accentColor = "#0d5eaf"
-  description = "Kefalas, Crete"
+  description = "Kefalas, Crete | Κεφαλάς, Κρήτη"
   avatarURL = "/images/villadetara.png"
   avatarAltText = "Villa de Tara"
   avatarSize = "size-xl"
-  metaKeywords = ["blog", "gokarna", "hugo"]
+  metaKeywords = ["blog", "hugo"]
   togglePreviousAndNextButtons = "true"
 
 [menu]
