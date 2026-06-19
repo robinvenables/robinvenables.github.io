@@ -64,8 +64,7 @@ theme = "gokarna"
     ordered = false
 
 [security]
-  [security.allowContent]
-    html = true
+  allowContent = ['.*']
 
   [security.exec]
     allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^code$', '^git$']
