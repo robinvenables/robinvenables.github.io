@@ -8,7 +8,7 @@ newContentEditor = "code"
 theme = "gokarna"
 
 [Permalinks]
-   posts = "/:year/:month/:contentbasename/"
+   blog = "/blog/:year/:month/:contentbasename/"
 
 [params]
   mainSections = ["posts", "reviews"]
