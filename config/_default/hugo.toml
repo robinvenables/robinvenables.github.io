@@ -7,7 +7,7 @@ enableRobotsTXT = true
 newContentEditor = "code"
 theme = "gokarna"
 
-[Permalinks]
+[permalinks]
    blog = "/blog/:year/:month/:contentbasename/"
 
 [params]
