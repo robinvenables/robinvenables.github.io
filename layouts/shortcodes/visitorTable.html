@@ -1,5 +1,5 @@
 {{ $filename := .Get 0 }}
-{{ $visitors := index .Site.Data.visitors $filename }}
+{{ $visitors := index hugo.Data.visitors $filename }}
 
 <table>
   <thead>

@@ -1,17 +1,14 @@
 baseURL = "https://www.villadetara.com"
 title = "Villa de Tara"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 enableEmoji = true
 enableRobotsTXT = true
 newContentEditor = "code"
 theme = "gokarna"
 
-[permalinks]
-   blog = "/blog/:year/:month/:contentbasename/"
-
 [params]
-  mainSections = ["posts", "reviews"]
+  mainSections = ["blog", "reviews"]
   accentColor = "#0d5eaf"
   description = "Kefalas, Crete | Κεφαλάς, Κρήτη"
   avatarURL = "/images/villadetara.png"
@@ -19,6 +16,9 @@ theme = "gokarna"
   avatarSize = "size-xl"
   metaKeywords = ["blog", "hugo"]
   togglePreviousAndNextButtons = "true"
+
+[permalinks]
+   blog = "/blog/:year/:month/:contentbasename/"
 
 [menu]
   [[menu.main]]
