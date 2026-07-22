@@ -1,6 +1,6 @@
 baseURL = "https://www.villadetara.com"
 title = "Villa de Tara"
-locale = "en"
+locale = "en-GB"
 defaultContentLanguage = "en"
 enableEmoji = true
 enableRobotsTXT = true
@@ -19,6 +19,7 @@ theme = "gokarna"
 
 [permalinks]
    blog = "/blog/:year/:month/:contentbasename/"
+   reviews = "/reviews/:year/:month/:contentbasename/"
 
 [menu]
   [[menu.main]]
